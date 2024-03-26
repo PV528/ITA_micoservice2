@@ -37,7 +37,7 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       - name: Build with Maven
-        run: mvn -B clean package -Dquarkus.mongodb.connection-string=mongodb://mongoquarkus:27017/?authSource=admin
+        run: mvn -B clean package -Dquarkus.mongodb.connection-string=mongodb://localhost:27017/?authSource=admin
 
       - name: Run tests
-        run: mvn -B test -Dquarkus.mongodb.connection-string=mongodb://mongoquarkus:27017/?authSource=admin
+        run: mvn -B test -Dquarkus.mongodb.connection-string=mongodb://localhost:27017/?authSource=admin
