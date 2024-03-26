@@ -14,21 +14,21 @@ import org.acme.service.RentalService;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-@QuarkusTest
+
 public class RentalServiceTest {
 
     @Mock
     private RentalRepository rentalRepository;
 
     @InjectMocks
-    private RentalService rentalService = new RentalService();
+    private RentalService rentalService;
 
     @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
     }
 
-    /*@Test
+    @Test
     public void integrationTestCreateRental() {
         Rental.RentalRequest request = Rental.RentalRequest.newBuilder()
                 .setRentStart("2024-03-19")
@@ -37,17 +37,17 @@ public class RentalServiceTest {
                 .setCarId("ABC123")
                 .build();
 
- //       when(rentalRepository.createRental(any())).thenReturn(Uni.createFrom().item(createMockRentalResponse()));
+        when(rentalRepository.createRental(any())).thenReturn(Uni.createFrom().item(createMockRentalResponse()));
         Uni<Rental.RentalResponse> responseUni = rentalService.createRental(request);
         responseUni.subscribe().with(response -> {
             assertEquals("Najem uspešno vstavljen", response.getMessage());
         });
     }
-    /*private Rental.RentalResponse createMockRentalResponse() {
+    private Rental.RentalResponse createMockRentalResponse() {
         return Rental.RentalResponse.newBuilder()
                 .setMessage("Najem uspešno vstavljen")
                 .build();
-    }*/
+    }
 
     @Test
     public void unitTestGetRental() {
