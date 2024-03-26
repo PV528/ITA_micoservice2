@@ -51,7 +51,7 @@ public class RentalServiceTest {
 
     @Test
     public void unitTestGetRental() {
-        ObjectId id = new ObjectId("65fb62cc11679c251f6b3ed1");
+        ObjectId id = new ObjectId("65fb2cbc93269057b38d59b3");
         String rentalIdString = id.toHexString(); // Convert ObjectId to String
         Rental.RentalGetRequest request = Rental.RentalGetRequest.newBuilder()
                 .setRentalId(rentalIdString)
