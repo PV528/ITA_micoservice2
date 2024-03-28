@@ -3,6 +3,8 @@ version: '3.8'
 services:
   rentalservice:
     build: .
+    environment:
+      - QUARKUS_MONGODB_CONNECTION_STRING=mongodb://mongoquarkus:27017/reservations
     ports:
       - "9000:9000"
     depends_on:
@@ -11,7 +13,7 @@ services:
   mongoquarkus:
     image: mongo:4.4.6
     ports:
-      - "27017:27017"
+      - "27018:27017"
     volumes:
       - mongodb_data:/data/db
 
