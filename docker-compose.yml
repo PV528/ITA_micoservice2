@@ -4,7 +4,7 @@ services:
   rentalservice:
     build: .
     environment:
-      - QUARKUS_MONGODB_CONNECTION_STRING=mongodb://mongoquarkus:27017/reservations
+      - QUARKUS_MONGODB_CONNECTION_STRING=mongodb://mongoquarkus:27017/
     ports:
       - "9000:9000"
     depends_on:
