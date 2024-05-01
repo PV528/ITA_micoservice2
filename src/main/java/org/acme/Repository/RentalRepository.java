@@ -16,6 +16,14 @@ public class RentalRepository {
     public RentalRepository() {
     }
 
+    public Uni<org.acme.Rental.HealthCheckResponse> check (org.acme.Rental.HealthCheckRequest request) {
+        // Perform health checks here
+        boolean isHealthy = true; // Example: perform health checks and set isHealthy accordingly
+        org.acme.Rental.HealthCheckResponse.Builder responseBuilder = org.acme.Rental.HealthCheckResponse.newBuilder()
+                .setStatus(isHealthy);
+        return Uni.createFrom().item(responseBuilder.build());
+    }
+
     public Uni<org.acme.Rental.RentalResponse> createRental(org.acme.Rental.RentalRequest request) {
         Rental rental = new Rental(
                 request.getRentStart(),

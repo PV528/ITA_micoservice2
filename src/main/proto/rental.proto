@@ -8,7 +8,15 @@ service RentalService {
   rpc DeleteRental (RentalGetRequest) returns (RentalResponse) {}
   rpc UpdateRental (RentalPutRequest) returns (RentalPutResponse) {}
   rpc AllRental (RentalGetAllRequest) returns (stream RentalGetResponse) {}
+  rpc Check(HealthCheckRequest) returns (HealthCheckResponse) {}
 }
+message HealthCheckRequest {}
+
+message HealthCheckResponse {
+  bool status = 1;
+}
+
+
 message RentalRequest {
   string rentStart = 1;
   string rentEnd = 2;
